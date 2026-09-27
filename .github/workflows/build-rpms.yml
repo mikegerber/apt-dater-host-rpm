@@ -5,6 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   srpm:
     runs-on: ubuntu-latest
@@ -12,17 +15,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+      - run: |
+          pwd
+          ls -a
+          git status
 
       - name: Install RPM and other build tools
         run: dnf install -y rpm-build rpmdevtools git
 
       - name: Set up RPM build tree
         run: rpmdev-setuptree
-
-      - run: |
-          pwd
-          ls -a
-          git status
 
       - name: Create source archive
         working-directory: ${{ github.workspace }}
