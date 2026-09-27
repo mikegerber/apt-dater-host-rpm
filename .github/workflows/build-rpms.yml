@@ -11,7 +11,7 @@ jobs:
     container: fedora:43
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install RPM and other build tools
         run: dnf install -y rpm-build rpmdevtools git
