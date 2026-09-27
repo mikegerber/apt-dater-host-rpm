@@ -15,26 +15,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-      - run: |
-          pwd
-          ls -a
-          git status
 
       - name: Install RPM and other build tools
-        run: dnf install -y rpm-build rpmdevtools git
+        run: dnf install -y rpm-build rpmdevtools spectool
 
       - name: Set up RPM build tree
         run: rpmdev-setuptree
 
-      - name: Create source archive
-        working-directory: ${{ github.workspace }}
+      - name: Download sources
         run: |
-          VERSION="$(rpmspec -q --qf '%{version}' apt-dater-host.spec)"
-
-          git archive \
-            --prefix="apt-dater-host-${VERSION}/" \
-            -o "$HOME/rpmbuild/SOURCES/apt-dater-host-${VERSION}.tar.gz" \
-            HEAD
+          spectool -g -R apt-dater-host.spec
 
       - name: Build SRPM
         run: |
