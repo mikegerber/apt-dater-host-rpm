@@ -31,7 +31,7 @@ jobs:
           rpmbuild -bs apt-dater-host.spec
 
       - name: Upload SRPM
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: srpm
           path: ~/rpmbuild/SRPMS/*.src.rpm
@@ -60,7 +60,7 @@ jobs:
         run: dnf install -y mock
 
       - name: Download SRPM
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: srpm
           path: srpm
@@ -74,7 +74,7 @@ jobs:
 
       - name: Upload RPM
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: rpm-${{ matrix.target }}
           path: |
