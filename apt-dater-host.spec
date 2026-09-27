@@ -1,6 +1,6 @@
 Name:           apt-dater-host
-Version:        1.0.0
-Release:        3%{?dist}
+Version:        1.0.1
+Release:        1%{?dist}
 BuildArch:      noarch
 Summary:        Host helper application for apt-dater
 
@@ -43,6 +43,9 @@ install man/apt-dater-host.1 $RPM_BUILD_ROOT/%{_mandir}/man1/
 
 
 %changelog
+* Sun Sep 27 2026 Mike Gerber <mike@mike-gerber.de> - 1.0.1-1
+- Update to 1.0.1
+
 * Tue Sep 01 2026 Mike Gerber <mike@mike-gerber.de>
 - Depend on /usr/bin/lsb_release instead of redhat-lsb-core
 
