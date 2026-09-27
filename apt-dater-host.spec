@@ -36,7 +36,7 @@ install man/apt-dater-host.1 $RPM_BUILD_ROOT/%{_mandir}/man1/
 
 
 %files
-%doc README
+%doc README.md
 %{_bindir}/apt-dater-host
 %config %{_sysconfdir}/apt-dater-host.conf
 %{_mandir}/man1/apt-dater-host.1*
