@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install RPM tools
-        run: dnf install -y rpm-build rpmdevtools
+      - name: Install RPM and other build tools
+        run: dnf install -y rpm-build rpmdevtools git
 
       - name: Set up RPM build tree
         run: rpmdev-setuptree
