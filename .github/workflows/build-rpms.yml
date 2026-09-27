@@ -19,6 +19,11 @@ jobs:
       - name: Set up RPM build tree
         run: rpmdev-setuptree
 
+      - run: |
+          pwd
+          ls -a
+          git status
+
       - name: Create source archive
         working-directory: ${{ github.workspace }}
         run: |
